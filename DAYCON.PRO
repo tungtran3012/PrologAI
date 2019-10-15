@@ -1,8 +1,15 @@
 Domains
 	xau=integer*
 Predicates
-	thuoc(integer,xau)
-	con(xau,xau,integer)
+	hop(xau,xau,xau)
+	xaucon(xau,xau)
+	tiepdau(xau,xau)
+	tiepcuoi(xau,xau)
 Clauses
-	
+	hop([],L,L).
+	hop([H|T],L,[H|T2]):-hop(T,L,T2).
+	tiepdau(P,L):-hop(P,_,L).
+	tiepcuoi(S,L):-hop(_,S,L).
+	xaucon(S,L):-tiepdau(S,L).
+	xaucon(S,[_|T]):-xaucon(S,T).
 	
