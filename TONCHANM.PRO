@@ -1,0 +1,15 @@
+Predicates
+	t(integer,integer,integer)
+Clauses
+	t(N,N,0):-N mod 2=1.
+	t(N,N,N):-N mod 2=0.
+	t(M,T,0):-T=M-1.
+	t(M,N,K):-M < N,
+		  N mod 2=0,
+		  N1=N-2,
+		  t(M,N1,K1),
+		  K=K1+N.
+	t(M,N,K):-M < N,
+		    N mod 2=1,
+		    N1=N-1,
+		    t(M,N1,K).		    

@@ -1,0 +1,11 @@
+Domains 
+	xau=integer*
+Predicates
+	thuoc(integer,xau)
+	giao(xau,xau)
+Clauses
+	thuoc(N,[N|_]).
+	thuoc(N,[_|T]):-thuoc(N,T).
+	giao([],_):-!.
+	giao([N|T],X):-thuoc(N,X),
+			giao(T,X).

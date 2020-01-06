@@ -1,0 +1,32 @@
+domains
+  	ng = symbol
+predicates
+	ong(ng,ng)
+  	cha(ng,ng)
+	bac(ng,ng)
+  	ae(ng,ng)
+  	cu(ng,ng)
+clauses
+	cha(titi,toto).
+	cha(titi,tutu).
+	cha(tutu,tete).
+  	cha(toto,mo).
+  	cha(toto,man).
+  	cha(mo,ban).
+  	cha(mo,ghe).
+  	cha(man,tu).
+  		  
+	ae(X,Y):- cha(Z,X), 
+		  cha(Z,Y), 
+		  X<>Y.
+	ae(X,Y):- cha(A,X),
+		  cha(B,Y),
+		  ae(A,B).
+  	bac(X,Y):-ae(T,X),	  
+  		   cha(T,Y).
+  	ong(X,Y):-cha(X,T),
+  		  bac(T,Y).
+  	ong(X,Y):-cha(X,T),
+  	  	  cha(T,Y).
+  	cu(X,Y):-ong(T,Y),
+  		 cha(X,T).	 
